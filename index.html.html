@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chapter IV: Admissibility of Evidence Obtained Abroad — MLA Bill 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=Noto+Serif+Tibetan:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   THEME
+   ============================================================ */
+html{ --scale:1; }
+
+html.theme-dark{
+  --bg-0:#05090f;
+  --bg-1:#0b1420;
+  --slide-a:#0a111c;
+  --slide-b:#0e1a2b;
+  --text:#eef3fa;
+  --text-2:#c2d0e3;
+  --dz:#d5e1f0;
+  --muted:#7d90ac;
+  --gold:#d8b451;
+  --rule:rgba(216,180,81,.28);
+  --line:rgba(255,255,255,.09);
+  --panel:rgba(255,255,255,.032);
+  --wash:rgba(216,180,81,.09);
+  --ghost:rgba(255,255,255,.045);
+  --ui:rgba(9,15,25,.72);
+  --shadow:0 40px 90px -32px rgba(0,0,0,.92);
+}
+
+html.theme-light{
+  --bg-0:#e7dfd0;
+  --bg-1:#f6f1e6;
+  --slide-a:#fdfbf6;
+  --slide-b:#f4ecdd;
+  --text:#0f1c30;
+  --text-2:#31415a;
+  --dz:#22314a;
+  --muted:#5d6b82;
+  --gold:#7d5f12;
+  --rule:rgba(125,95,18,.34);
+  --line:rgba(15,28,48,.12);
+  --panel:rgba(255,255,255,.7);
+  --wash:rgba(125,95,18,.075);
+  --ghost:rgba(15,28,48,.05);
+  --ui:rgba(255,255,255,.82);
+  --shadow:0 26px 60px -34px rgba(30,40,60,.45);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*,*::before,*::after{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  height:100vh;
+  overflow:hidden;
+  background:radial-gradient(1200px 820px at 50% -12%, var(--bg-1), var(--bg-0) 74%);
+  color:var(--text);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.dzo{
+  font-family:'Noto Serif Tibetan','Kailasa','Microsoft Himalaya','Jomolhari','Noto Sans Tibetan',serif;
+  font-weight:400;
+}
+
+/* ============================================================
+   SLIDE SHELL
+   ============================================================ */
+#deck{ position:fixed; inset:0; }
+
+.slide{
+  position:absolute;
+  left:50%; top:50%;
+  width:1122px; height:793px;
+  transform:translate(-50%,-50%) scale(var(--scale));
+  transform-origin:center center;
+  background:
+    radial-gradient(880px 560px at 90% -10%, var(--wash), transparent 64%),
+    linear-gradient(158deg, var(--slide-a) 0%, var(--slide-b) 100%);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .4s ease, visibility .4s;
+}
+.slide.active{ opacity:1; visibility:visible; z-index:2; }
+
+.inner{
+  position:relative;
+  z-index:3;
+  height:100%;
+  padding:38px 54px 30px;
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .5s ease .05s, transform .5s cubic-bezier(.22,.9,.3,1) .05s;
+}
+.slide.active .inner{ opacity:1; transform:none; }
+
+/* decorative ghost numeral */
+.ghost{
+  position:absolute;
+  right:22px; top:-34px;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:700;
+  font-size:250px;
+  line-height:.78;
+  letter-spacing:-.05em;
+  color:var(--ghost);
+  z-index:1;
+  user-select:none;
+  pointer-events:none;
+}
+
+/* vertical spine */
+.spine{
+  position:absolute;
+  left:0; top:0; bottom:0;
+  width:44px;
+  display:grid;
+  place-items:center;
+  border-right:1px solid var(--rule);
+  background:linear-gradient(180deg,transparent,var(--wash) 48%,transparent);
+  z-index:2;
+}
+.spine span{
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:9px;
+  letter-spacing:.36em;
+  text-transform:uppercase;
+  color:var(--gold);
+  white-space:nowrap;
+}
+.slide--sec .inner{ padding-left:86px; }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:18px;
+  font-size:9.5px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+  flex:none;
+}
+.head .kick{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.tag{
+  color:var(--gold);
+  border:1px solid var(--rule);
+  border-radius:100px;
+  padding:5px 12px;
+  letter-spacing:.18em;
+  white-space:nowrap;
+  flex:none;
+}
+
+.title{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:38px;
+  line-height:1.06;
+  letter-spacing:-.01em;
+  margin:11px 0 0;
+  flex:none;
+}
+.sub{
+  margin:5px 0 0;
+  font-size:15px;
+  line-height:1.9;
+  color:var(--gold);
+  flex:none;
+}
+
+.rule{
+  height:1px;
+  background:linear-gradient(90deg,var(--gold) 0%,var(--rule) 30%,transparent 80%);
+  margin:14px 0 18px;
+  flex:none;
+}
+
+/* ============================================================
+   BODY — BILINGUAL DIPTYCH
+   ============================================================ */
+.body{
+  --s:1;
+  flex:1;
+  min-height:0;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:.94fr 1.06fr;
+  gap:0;
+}
+
+.col{
+  min-height:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  gap:19px;
+  padding-right:30px;
+}
+.col--dz{
+  padding-right:0;
+  padding-left:32px;
+  border-left:1px solid var(--rule);
+}
+
+.blk{ position:relative; }
+
+.lab{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:9px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 7px;
+}
+.lab i{
+  width:4px; height:4px;
+  border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 0 3px var(--wash);
+  flex:none;
+}
+.lab.dzo{
+  font-size:11px;
+  letter-spacing:.02em;
+  text-transform:none;
+}
+
+.blk p{ margin:0; }
+.blk ul{ margin:8px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:7px; }
+.blk ul li{ display:grid; grid-template-columns:24px 1fr; gap:6px; }
+.blk ul .lt{ color:var(--gold); font-weight:600; }
+
+/* type scale */
+.p-en{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:500;
+  font-size:calc(18.5px * var(--s));
+  line-height:1.40;
+  color:var(--text);
+}
+.e-en{
+  font-size:calc(14.5px * var(--s));
+  line-height:1.62;
+  color:var(--text-2);
+}
+.p-dz{
+  font-size:calc(13.2px * var(--s));
+  line-height:1.98;
+  color:var(--dz);
+}
+.e-dz{
+  font-size:calc(12.6px * var(--s));
+  line-height:1.98;
+  color:var(--dz);
+  opacity:.94;
+}
+.p-en li, .p-en ul{ font-family:inherit; font-size:inherit; line-height:1.36; }
+.p-dz li{ font-size:inherit; }
+
+/* ============================================================
+   FOOT
+   ============================================================ */
+.foot{
+  flex:none;
+  margin-top:14px;
+  padding-top:9px;
+  border-top:1px solid var(--rule);
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  font-size:9px;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.foot .fr{ color:var(--gold); }
+
+/* ============================================================
+   COVER
+   ============================================================ */
+.slide--cover .inner{ justify-content:center; padding:66px 74px; }
+
+.orn{
+  position:absolute;
+  right:-200px; top:50%;
+  width:700px; height:700px;
+  margin-top:-350px;
+  border-radius:50%;
+  background:repeating-conic-gradient(from 0deg, var(--rule) 0deg .42deg, transparent .42deg 4.2deg);
+  -webkit-mask:radial-gradient(circle,#000 0 43%,transparent 43.4% 46.8%,#000 47.2% 48.4%,transparent 48.8% 60%,#000 60.2% 60.8%,transparent 61%);
+  mask:radial-gradient(circle,#000 0 43%,transparent 43.4% 46.8%,#000 47.2% 48.4%,transparent 48.8% 60%,#000 60.2% 60.8%,transparent 61%);
+  opacity:.8;
+  animation:spin 170s linear infinite;
+  z-index:1;
+}
+.rings{
+  position:absolute;
+  right:-110px; top:50%;
+  width:540px; height:540px;
+  margin-top:-270px;
+  border-radius:50%;
+  border:1px solid var(--rule);
+  z-index:1;
+}
+.rings::before,.rings::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  border:1px solid var(--rule);
+}
+.rings::before{ inset:54px; opacity:.65; }
+.rings::after{ inset:136px; border-color:var(--gold); opacity:.4; }
+@keyframes spin{ to{ transform:rotate(360deg); } }
+
+.eyebrow{
+  font-size:11px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+.cbar{
+  width:84px; height:2px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+  margin:20px 0 24px;
+}
+h1.cover{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:76px;
+  line-height:.98;
+  letter-spacing:-.022em;
+  margin:0;
+  max-width:780px;
+}
+.cdz{
+  margin:22px 0 0;
+  font-size:21px;
+  line-height:1.9;
+  color:var(--gold);
+  max-width:700px;
+}
+.cmeta{
+  margin-top:28px;
+  font-size:11.5px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cfoot{
+  margin-top:54px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+  max-width:780px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.cfoot b{ color:var(--text); font-weight:600; letter-spacing:.14em; }
+
+/* ============================================================
+   END SLIDE
+   ============================================================ */
+.slide--end .inner{ justify-content:center; padding:66px 74px; }
+h2.end{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:60px;
+  line-height:1.04;
+  letter-spacing:-.018em;
+  margin:16px 0 0;
+  max-width:820px;
+}
+.edz{
+  margin:20px 0 0;
+  font-size:19px;
+  line-height:1.95;
+  color:var(--gold);
+  max-width:780px;
+}
+.efoot{
+  margin-top:46px;
+  padding-top:18px;
+  border-top:1px solid var(--rule);
+  max-width:780px;
+  font-size:12px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.efoot b{ color:var(--text); font-weight:600; letter-spacing:.14em; }
+
+/* ============================================================
+   UI CHROME
+   ============================================================ */
+.ui{ position:fixed; z-index:80; }
+
+.ui--top{
+  top:14px; right:16px;
+  display:flex; gap:8px;
+}
+.chip{
+  font:inherit;
+  font-size:9.5px;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--muted);
+  background:var(--ui);
+  border:1px solid var(--line);
+  border-radius:100px;
+  padding:8px 13px;
+  cursor:pointer;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  transition:.2s;
+}
+.chip:hover{ color:var(--gold); border-color:var(--rule); }
+
+.ui--bottom{
+  left:50%; bottom:16px;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:6px 9px;
+  border-radius:100px;
+  background:var(--ui);
+  border:1px solid var(--line);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+.navbtn{
+  width:30px; height:30px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:transparent;
+  color:var(--text);
+  font-size:15px;
+  line-height:1;
+  cursor:pointer;
+  display:grid; place-items:center;
+  transition:.2s;
+}
+.navbtn:hover{ color:var(--gold); border-color:var(--rule); }
+
+.dots{ display:flex; gap:6px; align-items:center; }
+.dot{
+  width:6px; height:6px;
+  border-radius:100px;
+  border:0; padding:0;
+  background:var(--line);
+  cursor:pointer;
+  transition:.28s;
+}
+.dot:hover{ background:var(--muted); }
+.dot.active{ width:20px; background:var(--gold); }
+
+.counter{
+  font-size:10.5px;
+  letter-spacing:.18em;
+  color:var(--muted);
+  font-variant-numeric:tabular-nums;
+  min-width:56px;
+  text-align:center;
+}
+.counter b{ color:var(--gold); font-weight:600; }
+
+.progress{
+  position:fixed;
+  left:0; bottom:0;
+  width:100%; height:2px;
+  z-index:90;
+}
+.progress i{
+  display:block;
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,var(--gold),#f4e3ab);
+  transition:width .4s cubic-bezier(.22,.9,.3,1);
+}
+
+.hint{
+  position:fixed;
+  left:16px; bottom:18px;
+  font-size:9px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+  opacity:.5;
+  z-index:80;
+  pointer-events:none;
+}
+
+/* ============================================================
+   PRINT — A4 LANDSCAPE, ONE SLIDE PER PAGE
+   ============================================================ */
+@media print{
+
+  @page{ size:A4 landscape; margin:0; }
+
+  html, html.theme-dark, html.theme-light{
+    --bg-0:#ffffff !important;
+    --bg-1:#f8f3e9 !important;
+    --slide-a:#fdfbf6 !important;
+    --slide-b:#f4ecdd !important;
+    --text:#0f1c30 !important;
+    --text-2:#31415a !important;
+    --dz:#22314a !important;
+    --muted:#57657c !important;
+    --gold:#7a5c10 !important;
+    --rule:rgba(122,92,16,.36) !important;
+    --line:rgba(15,28,48,.14) !important;
+    --panel:rgba(255,255,255,.8) !important;
+    --wash:rgba(122,92,16,.07) !important;
+    --ghost:rgba(15,28,48,.05) !important;
+    --shadow:none !important;
+  }
+
+  *{
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+
+  html,body{
+    background:#fff !important;
+    height:auto !important;
+    overflow:visible !important;
+  }
+
+  .ui,.progress,.hint{ display:none !important; }
+
+  #deck{ position:static !important; }
+
+  .slide{
+    position:relative !important;
+    left:auto !important; top:auto !important;
+    transform:none !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    width:1122px !important;
+    height:793px !important;
+    border:0 !important;
+    box-shadow:none !important;
+    page-break-after:always;
+    break-after:page;
+    page-break-inside:avoid;
+    break-inside:avoid;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto; }
+
+  .inner{ opacity:1 !important; transform:none !important; }
+  .orn{ animation:none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ui ui--top">
+  <button class="chip" id="btnTheme" type="button">Light / Dark</button>
+  <button class="chip" id="btnPrint" type="button">Print / PDF</button>
+</div>
+
+<main id="deck">
+
+  <!-- =========================================================
+       1 · COVER
+       ========================================================= -->
+  <section class="slide slide--cover active">
+    <div class="orn" aria-hidden="true"></div>
+    <div class="rings" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="eyebrow">Chapter IV</div>
+      <div class="cbar"></div>
+      <h1 class="cover">Admissibility of<br>Evidence Obtained Abroad</h1>
+      <p class="cdz dzo">ལེའུ་ ༤ པ། ཕྱི་རྒྱལ་ལས་ཐོབ་པའི་སྒྲུབ་བྱེད་ཀྱི་ངོས་ལེན།</p>
+      <div class="cmeta">Mutual Legal Assistance in Criminal Matters Bill 2026 · Sections 24 – 35</div>
+      <div class="cfoot">Presented by: <b>Sonam Rinchen</b></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       2 · SECTION 24
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">24</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 24</span>
+      </div>
+      <h2 class="title">Certificate of Service</h2>
+      <p class="sub dzo">ཞབས་ཏོག་ངོ་སྦྱོར།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">A certificate of service provided pursuant to a request for service under Chapter III of this Act shall be admissible as evidence if such document has been served in the manner indicated in the certificate.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">When a foreign country serves Bhutan's documents on someone, it sends back a certificate saying how it was done. Bhutan's courts accept that certificate as evidence, as long as the service really happened the way the certificate says.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">བཅའ་ཁྲིམས་འདི་གི་ལེའུ་ ༣ པའི་འོག་གི་ཞབས་ཏོག་གི་ཞུ་བ་དང་འཁྲིལ་སྤྲོད་པའི་ ཞབས་ཏོག་ཕུལ་བའི་ངོ་སྦྱོར་འདི་ གལ་སྲིད་ ངོ་སྦྱོར་ཡིག་ཆ་ནང་བཀོད་དོ་བཟུམ་སྦེ་སྤྲོད་པ་ཅིན་ སྒྲུབ་བྱེད་སྦེ་ངོས་ལེན་འབད་ཆོག།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">ཕྱི་རྒྱལ་གྱིས་ འབྲུག་གི་ཡིག་ཆ་ཚུ་ མི་གཞན་ལུ་སྤྲོད་པའི་སྐབས་ ཡིག་ཆ་དེ་ གཙང་མར་སྤྲོད་ཡོད་པའི་ ཞབས་ཏོག་ངོ་སྦྱོར་ཅིག་ ལོག་བཏངམ་ཨིན། ངོ་སྦྱོར་ཡིག་ཆ་ནང་ བཀོད་དོ་བཟུམ་སྦེ་ ངེས་ཏིང་སྤྲོད་ཡོད་པ་ཅིན་ འབྲུག་གི་ཁྲིམས་ཁང་གིས་ ངོ་སྦྱོར་དེ་ སྒྲུབ་བྱེད་སྦེ་ ངོས་ལེན་འབདཝ་ཨིན།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">24</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       3 · SECTION 25
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">25</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 25</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">Where a Requested State agrees to execute a request, made under Chapter III of this Act, to facilitate the giving of oral evidence in proceedings taking place in the Kingdom of Bhutan by a person located in the Requested State, the person may give such evidence through digital media.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">If Bhutan asks another country to help and that country agrees, a witness living there can give oral evidence in a Bhutanese court through digital media, such as a video link, without travelling.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">ཞུ་བ་འབད་མིའི་རྒྱལ་ཁབ་དེ་ལུ་ བཅའ་ཁྲིམས་འདི་གི་ལེའུ་ ༣ པ་དང་འཁྲིལ་ རྒྱལ་ཁབ་དེ་ནང་ལུ་སྤྲོད་མི་ མི་གཅིག་གིས་ འབྲུག་རྒྱལ་ཁབ་ནང་ལུ་རྩོད་བཤེར་ཕྱེ་སར་ སྒྲུབ་བྱེད་བྱིན་ནིའི་ཕེན་འདེབས་ཐབས་ལམ་ཅིག་སྒྲིག་དགོ་པའི་ཞུ་བ་ལུ་ རྒྱལ་ཁབ་དེ་གིས་ཞུ་བ་བསྟར་སྤྲོད་འབད་ད་པ་ཅིན་ མི་དེ་གིས་ཨང་ཅན་བརྡ་བརྒྱུད་ཐོག་སྒྲུབ་བྱེད་བྱིན་ཆོག།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">འབྲུག་གིས་ རྒྱལ་ཁབ་གཞན་ཅིག་ལུ་ རོགས་རམ་འབད་དགོ་པའི་ ཞུ་བ་ཕུལ་ཏེ་ རྒྱལ་ཁབ་དེ་གིས་ ངོས་ལེན་འབད་བ་ཅིན་ རྒྱལ་ཁབ་དེ་ནང་ སྡོད་མི་ དཔང་པོ་གིས་ འབྲུག་ལུ་ ལྷོད་དགོཔ་མེད་པར་ བརྙན་མཐོང་ (Video Link) ལ་སོགས་པ་ ཨང་ཅན་བརྡ་བརྒྱུད་ཀྱི་ཐོག་ལས་ འབྲུག་གི་ཁྲིམས་ཁང་ནང་ ཁ་ཐོག་ལས་ སྒྲུབ་བྱེད་སྤྲོད་ཆོག།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">25</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       4 · SECTION 26
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">26</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 26</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">Evidence given through digital media shall be admissible in accordance with the Evidence Act of Bhutan.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">Evidence given through digital media is accepted under Bhutan's Evidence Act, the same as evidence given in the courtroom.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">ཨང་ཅན་བརྡ་བརྒྱུད་ཐོག་ལས་བྱིན་པའི་སྒྲུབ་བྱེད་འདི་ འབྲུག་གི་སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་དང་འཁྲིལ་ཏེ་ ངོས་ལེན་འབད་དགོ།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">ཨང་ཅན་བརྡ་བརྒྱུད་ཐོག་ལས་ བྱིན་མི་ སྒྲུབ་བྱེད་འདི་ ཁྲིམས་ཁང་ནང་ དངོས་སུ་སྦེ་ བྱིན་མི་ སྒྲུབ་བྱེད་དང་འདྲ་བར་ འབྲུག་གི་སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་ ༢༠༠༥ ཅན་མ་དང་འཁྲིལ་ཏེ་ ངོས་ལེན་འབདཝ་ཨིན།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">26</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       5 · SECTION 27
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">27</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 27</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">A witness giving evidence through digital media shall not be compelled to give any evidence which he could not be compelled to give in the jurisdiction in which he is physically present.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">When a witness testifies via digital media from another country, the laws of that country protect them. The Bhutanese court cannot compel the witness to provide any evidence if the laws of the place where they are physically located give them a legal right to refuse to answer (for example, based on legal privilege or the right against self-incrimination).</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">སྒྲུབ་བྱེད་སྤྲོད་མིའི་དཔང་པོ་འདི་ལུ་ ཁོ་ར་དངོས་སུ་སྦེ་ཡོད་པའི་ དབང་ཁྱབ་ཀྱི་ནང་འཁོད་ ནན་སྐུལ་གྱི་ཐོག་ལས་སྤྲོད་དགོཔ་མེད་པའི་སྒྲུབ་བྱེད་ཚུ་སྤྲོད་ནི་ནང་ ནན་བསྐུལ་འབད་ནི་མི་འོང་།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">དཔང་པོ་གིས་ རྒྱལ་ཁབ་གཞན་ཅིག་ནང་ལས་ ཨང་ཅན་བརྡ་བརྒྱུད་ཐོག་ལས་ སྒྲུབ་བྱེད་སྤྲོད་པ་ཅིན་ རྒྱལ་ཁབ་དེ་གི་ ཁྲིམས་གཞུང་གིས་ ཁོ་ལུ་ སྲུང་སྐྱོབ་འབད་དགོ། དཔང་པོ་ཁོ་ར་སྡོད་སའི་ རྒྱལ་ཁབ་ཀྱི་ཁྲིམས་ཀྱིས་ སྒྲུབ་བྱེད་བྱིན་ནི་ལས་ཟུར་བཞུགས་ནིའི་ ཐོབ་དབང་ཡོད་པ་ཅིན་ (དཔེར་ན་ སྒེར་གྱི་ཐོབ་དབང་ ཡང་ན་ རང་གིས་རང་ལུ་ ཉེས་ཆད་ཕོག་ནིའི་ ཉེན་ཁ་ལས་ ཟུར་བཞུགས་ཀྱི་ཐོབ་དབང་) འབྲུག་གི་ཁྲིམས་ཁང་གིས་ སྒྲུབ་བྱེད་དེ་ ཨིན་ཅི་མིན་ཅི་ སྤྲོད་དགོ་ཟེར་ ནན་བསྐུལ་འབད་མི་ཆོག།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">27</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       6 · SECTION 28
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">28</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 28</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">Where a witness refuses to give evidence based on the ground that he is entitled to refuse under section 27, the court holding the proceedings in the Kingdom of Bhutan may request the Central Authority to seek a ruling from the judicial authority of the Requested State as to whether the refusal by the witness is well founded.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">If a witness refuses to answer on the ground that they are legally entitled to do so, the Bhutanese court may ask the Central Authority to seek a ruling from the other country's judicial authority on whether that refusal is justified.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">དཔང་པོ་གིས་ རྩ་ཚན་ ༢༧ པའི་འོག་ལུ་ ཐོབ་དབང་ཡོད་པའི་སྒྲུབ་བྱེད་མ་བྱིན་རུང་བཏུབ་ཡོད་པ་ཅིན་ འབྲུག་རྒྱལ་ཁབ་ནང་ རྩོད་གཞི་ཕྱེ་མི་ཁྲིམས་ཁང་གིས་དབང་འཛིན་ལྟེ་བ་ལུ་ ཞུ་བ་ཕུལ་མིའི་རྒྱལ་ཁབ་ཀྱི་ཁྲིམས་དོན་དབང་འཛིན་ལས་ དཔང་པོ་གིས་ཁ་མ་བཟེད་མི་འདི་ འོས་འབབ་དང་ལྡནམ་ཡོད་ག་གི་ཞུ་བ་ཕུལ་དགོ།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">དཔང་པོ་གིས་ ཁོ་ལུ་ ཁྲིམས་ཐོག་ལས་ ཟུར་བཞུགས་འབད་ནིའི་ ཐོབ་དབང་ཡོད་ཟེར་ སྒྲུབ་བྱེད་བྱིན་ནི་ལས་ ཁ་མ་བཟེད་པར་ ལུས་པ་ཅིན་ འབྲུག་གི་ཁྲིམས་ཁང་གིས་ དབང་འཛིན་ལྟེ་བ་ལུ་ དཔང་པོ་གིས་ ཁ་མ་བཟེད་མི་འདི་ རྒྱལ་ཁབ་དེ་གི་ ཁྲིམས་ཐོག་ལས་ འོས་འབབ་ཡོད་ག་མེད་ རྒྱལ་ཁབ་དེ་གི་ ཁྲིམས་དོན་དབང་འཛིན་ལས་ ཐག་བཅད་དགོ་པའི་ ཞུ་བ་ཕུལ་ཆོག།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">28</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       7 · SECTION 29
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">29</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 29</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">A ruling by the judicial authority pursuant to section 28 may be provided:</p>
+            <ul class="p-en">
+              <li><span class="lt">(a)</span><span>Pursuant to a request under Chapter III of this Act;</span></li>
+              <li><span class="lt">(b)</span><span>In writing directly from the judicial authority of the Requested State to the Central Authority for submission to the court holding the proceedings in the Kingdom of Bhutan; or</span></li>
+              <li><span class="lt">(c)</span><span>Where the judicial authority of the Requested State is present with the witness giving evidence via digital media</span></li>
+            </ul>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">The ruling can reach Bhutan's court in three ways: (a) through a formal Chapter III request, (b) in writing, sent directly to the Central Authority and then to the court, or (c) given live, when the other country's judicial authority is present with the witness during the digital-media session.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">དོན་ཚན་ ༢༨ པ་དང་འཁྲིལ་ཏེ་ ཁྲིམས་འབྲེལ་དབང་འཛིན་གྱིས་གྲོས་ཆོད་སྤྲོད་ཆོགཔ་དེ་ཡང་། ཀ༽ བཅའ་ཁྲིམས་འདི་གི་ལེའུ༌ ༣ པའི༌ཞུ༌བ༌དང༌འཁྲིལ། ཁ༽ ཞུ་བ་ཕུལ་སའི་རྒྱལ་ཁབ་ཀྱི་ཁྲིམས་འབྲེལ་དབང་འཛིན་གྱིས་ ཐད་ཀར་དུ་དབང་འཛིན་ལྟེ་བ་ལུ་དང་དབང་འཛིན་ལྟེ་བ་གིས་འབྲུག་རྒྱལ་ཁབ་ནང་ཀྱི་རྩོད་བཤེར་ཕྱེ་སའི་ཁྲིམས་འདུན་ལུ་ ཡིག་ཐོག་ལུ། ཡང་ན། ག༽ ཞུ་བ་ཕུལ་སའི་རྒྱལ་ཁབ་ཀྱི་ཁྲིམས་འབྲེལ་དབང་འཛིན་འདི༌དང་ ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་དེ་སྒྲུབ༌བྱེད༌སྤྲོད༌མི༌དཔང༌པོ༌གཉིས༌གཅིག༌ཁར༌ཡོདཔ་ད།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">དེ་གི་ཐག་བཅད་/གྲོས་ཆོད་འདི་ འབྲུག་གི་ཁྲིམས་ཁང་ལུ་ ཐབས་ལམ་གསུམ་གྱི་ཐོག་ལས་ ལྷོད་ཆོག། (ཀ) ལེའུ་ ༣ པའི་འོག་གི་ གཞུང་འབྲེལ་ཞུ་བ་ཐོག་ལས། (ཁ) ཞུ་བ་ཕུལ་སའི་རྒྱལ་ཁབ་ཀྱི་ ཁྲིམས་དོན་དབང་འཛིན་ལས་ དབང་འཛིན་ལྟེ་བ་ལུ་ ཡིག་ཐོག་ལས་ ཐད་ཀར་བཏང་སྟེ་ དེ་ལས་ ཁྲིམས་ཁང་ལུ་ ཕུལ་ནི། (ག) ཨང་ཅན་བརྡ་བརྒྱུད་ཐོག་ལས་ སྒྲུབ་བྱེད་སྤྲོད་པའི་སྐབས་ རྒྱལ་ཁབ་དེ་གི་ ཁྲིམས་དོན་དབང་འཛིན་དེ་ དཔང་པོ་དང་ཅིག་ཁར་ དངོས་སུ་ཡོད་པའི་སྐབས་ གསལ་སྟོན་འབད་ཐོག་ལས།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">29</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       8 · SECTION 30
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">30</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 30</span>
+      </div>
+      <h2 class="title">Evidence via Digital Media</h2>
+      <p class="sub dzo">ཨང་ཅན་བརྡ་བརྒྱུད་བརྒྱུད་པའི་སྒྲུབ་བྱེད།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">A ruling pursuant to section 29 shall conclusively determine whether or not the refusal of the witness is well founded in the jurisdiction in which the witness is located.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">That ruling is final on whether the witness's refusal was valid under the law where the witness is located.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">དོན་ཚན་ ༢༩ པ་དང་འཁྲིལ་བའི་གྲོས་ཆོད་འདི་གིས་ དཔང་པོ་སྤྲོད་སའི་དབང་ཁྱབ་ནང་ལུ་ དཔང་པོ་གིས་ངོས་ལེན་མ་འབད་མི་འདི་ ཁུངས་ལྡན་ཨིན་ན་མེན་ན་ མཐའ་དཔྱད་སྦེ་གཏན་འཁེལ་བཟོཝ་ཨིན།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">རྒྱལ་ཁབ་དེ་གི་ ཁྲིམས་དོན་དབང་འཛིན་གྱིས་ བསྐྱལ་མི་ ཐག་བཅད་/གྲོས་ཆོད་དེ་གིས་ དཔང་པོ་ཡོད་སའི་ རྒྱལ་ཁབ་ཀྱི་ཁྲིམས་དང་འཁྲིལ་ དཔང་པོ་གིས་ སྒྲུབ་བྱེད་བྱིན་ནི་ལས་ ཁ་མ་བཟེ་མི་དེ་ ཁུངས་ལྡན་ཨིན་ན་མེན་ མཐའ་དཔྱད་སྦེ་ གཏན་འཁེལ་བཟོཝ་ཨིན།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">30</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       9 · SECTION 31
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">31</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 31</span>
+      </div>
+      <h2 class="title">Foreign Records</h2>
+      <p class="sub dzo">ཕྱི་འབྲེལ་གྱི་འཛིན་ཐོ།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">A record provided pursuant to a request made under Chapter III of this Act or a copy of the record or an affidavit, certificate or other statement relating to the record made by a person having custody or knowledge of the record, shall not, without prejudice to the general principles under the Evidence Act of Bhutan, be inadmissible in evidence by reason only that it contains a statement that is hearsay or a statement of opinion.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">A foreign record, a copy of it, or a sworn statement or certificate about it (by someone who holds or knows the record) cannot be rejected just because it contains hearsay or opinion. Bhutan's general evidence principles still apply.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">བཅའ་ཁྲིམས་འདི་གི་ལེའུ་ ༣ པའི་འོག་ལུ་ ཞུ་བ་ཕུལ་མི་དང་འཁྲིལ་ཏེ་བྱིན་ཡོད་པའི་ཐོ་ ཡང་ན་ ཡིག་ཐོ་གི་འདྲ་ ཡང་ན་ ཐོ་དེ་གི་སྐོར་ལས་ཤེས་མི་ མི་ངོམ་ཅིག་གིས་བཟོ་ཡོད་པའི་ ཡིག་ཐོ་དང་འབྲེལ་བའི་འབའ་གན་ ལག་ཁྱེར་ ཡང་ན་ གཞན་མི་ངག་བརྗོད་ཚུ་ འབྲུག་གི་སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་ཀྱི་འོག་ལུ་ཡོད་པའི་ སྤྱིར་བཏང་གཞི་རྩ་ཚུ་ལུ་མ་བལྟ་བར་ སྒྲུབ་བྱེད་ནང་ལུ་ བརྒྱུད་གཏམ་ ཡང་ན་ བསམ་བརྗོད་རྐྱངམ་གཅིག་ཨིན་པའི་རྒྱུ་མཚན་ལུ་བརྟེན་ ངོས་ལེན་འབད་མ་ཆོགཔ་མེན།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">ཕྱི་རྒྱལ་གྱི་ འཛིན་ཐོ་ (Record) ཡང་ན་ དེ་གི་འདྲ་བཤུས་ ཡང་ན་ འཛིན་ཐོ་དེ་ ཉར་མི་/ཤེས་མི་གིས་ བཟོ་མི་ འབའ་གན་དང་ ལག་ཁྱེར་ཚུ་ནང་ བརྒྱུད་གཏམ་ (Hearsay) ཡང་ན་ བསམ་འཆར་ (Opinion) ཡོད་པའི་ རྒྱུ་མཚན་རྐྱངམ་གཅིག་ལུ་ བརྟེན་ཏེ་ ངོས་ལེན་མ་འབད་བར་ བཞག་མི་ཆོག། འབྲུག་གི་ སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་ཀྱི་ སྤྱིར་བཏང་གཞི་རྩ་ཚུ་ གཞི་བཟུང་སྟེ་ ལག་ལེན་འཐབ་དགོ།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">31</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       10 · SECTION 32
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">32</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 32</span>
+      </div>
+      <h2 class="title">Foreign Records</h2>
+      <p class="sub dzo">ཕྱི་འབྲེལ་གྱི་འཛིན་ཐོ།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">The probative value of foreign records shall be determined as per the Evidence Act of Bhutan.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">Being admitted is one step. How much weight the court gives the record is decided under Bhutan's Evidence Act.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">ཕྱི་རྒྱལ་གྱི་ཡིག་ཐོའི་བདེན་རྟགས་གནས་གོང་འདི་ འབྲུག་གི་སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་དང་འཁྲིལ་ཏེ་ གཏན་འབེབས་འབད་ནི་ཨིན།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">ཕྱི་རྒྱལ་གྱི་ ཡིག་ཐོ་དེ་ལུ་ བདེན་རྟགས་གནས་གོང་ (Probative Value) ག་དེམ་ཅིག་ བརྩི་དགོ་ག་དེ་ འབྲུག་གི་ སྒྲུབ་བྱེད་བཅའ་ཁྲིམས་དང་འཁྲིལ་ཏེ་ ཁྲིམས་ཁང་གིས་ ཐག་བཅད་འོང་།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">32</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       11 · SECTION 33
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">33</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 33</span>
+      </div>
+      <h2 class="title">Foreign Articles or Things</h2>
+      <p class="sub dzo">ཕྱི་འབྲེལ་གྱི་ཅ་དངོས་ཡང་ན་དངོས་པོ།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">Where any article or thing, or an affidavit, certificate or any other statement pertaining to the identity and possession of such an article or thing from the time it was obtained until its transmission to the Central Authority is provided pursuant to a request under Chapter III of this Act, it shall not be inadmissible in evidence by reason only that any such affidavit, certificate or other statement contains hearsay or a statement of opinion.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">This is the same rule as Section 31, applied to physical items. A statement about who held the item, from the time it was obtained until it reached the Central Authority, cannot be rejected just because it has hearsay or opinion in it.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">ཅ་དངོས་ ཡང་ན་དངོས་པོ་ཅིག་གི་ངོ་རྟགས་དང་ བདག་དབང་དང་འབྲེལ་བའི་ཅ་དངོས་ ཡང་ན་དངོས་པོ་ ཡང་ན་ འབའ་གན། ལག་ཁྱེར་ ཡང་ན་ ངག་བརྗོད་གང་རུང་ཅིག་འཐོབ་པའི་དུས་ལས་ བཅའ་ཁྲིམས་འདིའི་ལེའུ་ ༣ པའི་འོག་ལུ་ཡོད་པའི་ཞུ་བ་དང་འཁྲིལ་ཏེ་ དབང་འཛིན་ལྟེ་བ་ལུ་མ་བཏང་ཚུན་ དེ་བཟུམ་མའི་ འབའ་གན་དང་ལག་ཁྱེར་ ཡང་ན་ངག་བརྗོད་གཞན་ག་ཅི་ར་འབད་རུང་ བརྒྱུད་གཏམ་ ཡང་ན་བསམ་འཆར་གྱི་ངག་བརྗོད་ཨིན་པ་ཙམ་གྱིས་ ངོས་ལེན་འབད་མ་བཏུབ་སྦེ་མེན།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">འདི་ རྩ་ཚན་ ༣༡ པ་དང་ ཅོག་གཅིག་ཨིནམ་དང་ དངོས་པོ་/ཅ་དངོས་ (Physical Items) ཚུ་ལུ་ ལག་ལེན་འཐབ་ཨིན། ཅ་དངོས་དེ་ ཐོབ་པའི་དུས་ལས་ དབང་འཛིན་ལྟེ་བ་ལུ་ མ་བསྐྱེལ་གྱི་བར་ནང་ ག་གིས་ བདག་འཛིན་འབད་ཡོད་ག་གི་ སྐོར་ལས་ འབའ་གན་དང་ ལག་ཁྱེར་ཚུ་ནང་ བརྒྱུད་གཏམ་ ཡང་ན་ བསམ་འཆར་ཡོད་པའི་ རྒྱུ་མཚན་རྐྱངམ་གཅིག་ལུ་ བརྟེན་ཏེ་ ངོས་ལེན་མ་འབད་བར་ བཞག་མི་ཆོག།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">33</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       12 · SECTION 34
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">34</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 34</span>
+      </div>
+      <h2 class="title">Status of Affidavit, Certificate, etc.</h2>
+      <p class="sub dzo">འབའ་གན་དང་ལག་ཁྱེར་ལ་སོགས་པའི་གནས་རིམ།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">An affidavit, certificate or other statement provided pursuant to a request under Chapter III of this Act shall be admissible as proof of its contents without requiring proof of the signature or official character of the person appearing to have signed the affidavit, certificate or other statement except where these matters or evidence are brought into doubt by other evidence.</p>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">These documents are accepted as proof of what they say. The court does not need separate proof that the signature is genuine or that the signer holds the official post, unless other evidence casts doubt on it.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">བཅའ་ཁྲིམས་འདི་གི་ལེའུ་ ༣ པའི་འོག་གི་ ཞུ་བ་དང་འཁྲིལ་ཏེ་སྤྲོད་ཡོད་པའི་ འབའ་གན་ ལག་ཁྱེར་ ཡང་ན་ངག་བརྗོད་གཞན་ཚུ་ སྒྲུབ་བྱེད་གཞན་ལས་བརྟེན་ཏེ་ཐེ་ཚོམ་བྱུང་ན་མ་གཏོགས་ འབའ་གན་ ལག་ཁྱེར་ ཡང་ན་ངག་བརྗོད་གཞན་ཚུ་གུར་ མཚན་རྟགས་བཀོད་པའི་མི་ངོ་འདི་གི་གཞུང་འབྲེལ་འགན་ཁུར་ ཡང་ན་ མིང་རྟགས་ཀྱི་མངོན་རྟགས་མེད་རུང་ ནང་དོན་གྱི་མངོན་རྟགས་སྦེ་ ངོས་ལེན་འབད་ཆོག།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">ཡིག་ཆ་འདི་ཚུ་ ནང་དོན་གྱི་ སྒྲུབ་བྱེད་སྦེ་ ངོས་ལེན་འབདཝ་ཨིན། སྒྲུབ་བྱེད་གཞན་གྱིས་ ཐེ་ཚོམ་མ་བཟོ་བ་ཅིན་ ཡིག་ཆ་གུར་ མཚན་རྟགས་བཀོད་མི་དེ་ ངོ་མ་ཨིན་ག་མེན་ག་དང་ གཞུང་འབྲེལ་གྱི་ འགན་ཁུར་ཡོད་ག་མེད་ སྒྲུབ་བྱེད་སྟོན་དགོཔ་མེད།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">34</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       13 · SECTION 35
+       ========================================================= -->
+  <section class="slide slide--sec">
+    <div class="spine"><span>Chapter IV</span></div>
+    <div class="ghost" aria-hidden="true">35</div>
+    <div class="inner">
+      <div class="head">
+        <span class="kick">Chapter IV: Admissibility of Evidence Obtained Abroad</span>
+        <span class="tag">Section 35</span>
+      </div>
+      <h2 class="title">Preservation of Informal Arrangements</h2>
+      <p class="sub dzo">ལུགས་ཡངས་སྒྲིག་ཆ་རྒྱུན་སྐྱོང་།</p>
+      <div class="rule"></div>
+
+      <div class="body">
+        <div class="col col--en">
+          <div class="blk">
+            <div class="lab"><i></i>Provision</div>
+            <p class="p-en">Nothing in this Act shall be construed so as to abrogate or derogate from an arrangement or practice respecting cooperation between a competent authority and a foreign authority, agency or organization. The competent authority must:</p>
+            <ul class="p-en">
+              <li><span class="lt">(a)</span><span>Ensure the arrangement is consistent with any policies, guidelines or directions issued by the Central Authority under this Act</span></li>
+              <li><span class="lt">(b)</span><span>Notify the Central Authority before entering into or implementing any arrangement if it involves the disclosure of personal data, the use of coercive measures, sovereignty, security or public interest and</span></li>
+              <li><span class="lt">(c)</span><span>Maintain records of cooperation undertaken under this section and shall furnish such information as the Central Authority may require for the purpose of oversight, coordination and reporting.</span></li>
+            </ul>
+          </div>
+          <div class="blk">
+            <div class="lab"><i></i>Explanation</div>
+            <p class="e-en">Existing informal cooperation between Bhutanese agencies and foreign agencies is not cancelled by this Act. The agency must keep it consistent with the Central Authority's guidelines, tell the Central Authority first if it involves personal data, coercive measures, sovereignty, security or public interest, and keep records of the cooperation.</p>
+          </div>
+        </div>
+        <div class="col col--dz">
+          <div class="blk">
+            <div class="lab dzo">དོན་ཚན།</div>
+            <p class="p-dz dzo">བཅའ་ཁྲིམས་འདི་ནང་ཡོད་མི་ག་ཅི་གིས་ཨིན་རུང་ དབང་ནུས་ལྡན་པའི་དབང་འཛིན་དང་ ཕྱི་རྒྱལ་དབང་འཛིན་ ལས་སྡེ་ ཡང་ན་ ལས་ཚོགས་ཚུ་གི་བར་ན་ མཉམ་འབྲེལ་ལུ་བརྩི་མཐོང་ཡོད་པའི་སྒྲིག་ཆ་ ཡང་ན་ ལག་ལེན་ ཆ་མེད་གཏང་ནི་དང་ བརྩི་ཁུངས་མེདཔ་སྦེ་དོན་འགྲེལ་འབད་ནི་མེན། དབང་ནུས་ལྡན་པའི་དབང་འཛིན་གྱིས། ཀ༽ སྒྲིག་ཆ་འདི་ བཅའ་ཁྲིམས་འདི་གི་འོག་ལུ་ དབང་འཛིན་ལྟེ་བ་གིས་སྤྲོད་མི་ སྲིད་བྱུས་ ལམ་སྟོན་ ཡང་ན་ བཀོད་རྒྱ་ཚུ་དང་རིམ་མཐུན་ཡོདཔ་ངེས་བརྟན་བཟོ་དགོ། ཁ༽ གལ་སྲིད་ སྒེར་གྱི་གནས་སྡུད་ཕྱིར་བཏོན་ བཙན་བསྐུལ་ཐབས་ལམ་ལག་ལེན་ རང་བཙན་ སྲུང་སྐྱོབ་ ཡང་ན་ མི་དམངས་མཐའ་དོན་ཚུ་ཚུད་དེ་ཡོད་པ་ཅིན་ སྒྲིག་ཆ་གང་རུང་ལུ་ངོས་ལེན་དང་བསྟར་སྤྲོད་མ་འབད་བའི་ ཧེ་མ་ དབང་ནུས་ལྡན་པའི་དབང་འཛིན་ལུ་ བརྡ་སྐུལ་འབད་དགོ། ག༽ དོན་ཚན་འདི་གི་འོག་ལུ་ མཉམ་འབྲེལ་འབད་བའི་ཐོ་བཞག་དགོཔ་དང་ དབང་འཛིན་ལྟེ་བ་གིས་ལྟ་བཀོད་ མཉམ་འབྲེལ་དང་སྙན་ཞུའི་དོན་ལུ་བརྡ་དོན་ཚུ་ དགོས་མཁོ་འཐོན་ཚེ་སྤྲོད་དགོ།</p>
+          </div>
+          <div class="blk">
+            <div class="lab dzo">འགྲེལ་བཤད།</div>
+            <p class="e-dz dzo">འབྲུག་གི་ དབང་འཛིན་དང་ ཕྱི་རྒྱལ་གྱི་ ལས་སྡེ་ཚུ་གི་བར་ནང་ ཧེ་མ་ལས་ཡོད་པའི་ ལུགས་ཡངས་/གཞུང་འབྲེལ་མིན་པའི་ མཉམ་འབྲེལ་གྱི་ སྒྲིག་ཆ་ཚུ་ བཅའ་ཁྲིམས་འདི་གིས་ ཆ་མེད་མི་གཏང། ཡིན་རུང་ དབང་ནུས་ལྡན་པའི་ དབང་འཛིན་གྱིས་: (ཀ) སྒྲིག་ཆ་དེ་ དབང་འཛིན་ལྟེ་བའི་ ལམ་སྟོན་དང་ མཐུན་དགོ། (ཁ) སྒེར་གྱི་གནས་སྡུད་ ཕྱིར་བཏོན་འབད་ནི་ བཙན་བསྐུལ་ཐབས་ལམ་ རང་བཙན་ སྲུང་སྐྱོབ་ ཡང་ན་ མི་དམངས་མཐའ་དོན་ཚུ་ ཡོད་པ་ཅིན་ ཧེ་མ་ལས་ དབང་འཛིན་ལྟེ་བ་ལུ་ བརྡ་སྐུལ་འབད་དགོ། (ག) མཉམ་འབྲེལ་གྱི་ ཐོ་བཞག་དགོཔ་དང་ དབང་འཛིན་ལྟེ་བ་ལུ་ སྙན་ཞུ་ ཕུལ་དགོ།</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot"><span>Chapter IV · Sections 24 – 35</span><span class="fr">35</span></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       14 · END
+       ========================================================= -->
+  <section class="slide slide--end">
+    <div class="orn" aria-hidden="true"></div>
+    <div class="rings" aria-hidden="true"></div>
+    <div class="inner">
+      <div class="eyebrow">End of Chapter IV</div>
+      <div class="cbar"></div>
+      <h2 class="end">Admissibility of Evidence Obtained Abroad</h2>
+      <p class="edz dzo">ལེའུ་ ༤ པ། ཕྱི་རྒྱལ་ལས་ཐོབ་པའི་སྒྲུབ་བྱེད་ཀྱི་ངོས་ལེན།</p>
+      <div class="efoot">Presented by <b>Sonam Rinchen</b></div>
+    </div>
+  </section>
+
+</main>
+
+<div class="ui ui--bottom">
+  <button class="navbtn" id="prev" type="button" aria-label="Previous slide">‹</button>
+  <div class="dots" id="dots"></div>
+  <div class="counter"><b id="cur">01</b> / <span id="tot">14</span></div>
+  <button class="navbtn" id="next" type="button" aria-label="Next slide">›</button>
+</div>
+
+<div class="progress"><i id="bar"></i></div>
+<div class="hint">← → navigate · P print</div>
+
+<script>
+(function () {
+  'use strict';
+
+  var deck   = document.getElementById('deck');
+  var slides = Array.prototype.slice.call(deck.querySelectorAll('.slide'));
+  var total  = slides.length;
+  var curEl  = document.getElementById('cur');
+  var totEl  = document.getElementById('tot');
+  var bar    = document.getElementById('bar');
+  var dotsWrap = document.getElementById('dots');
+  var idx = 0;
+
+  function pad(n){ return n < 10 ? '0' + n : String(n); }
+  totEl.textContent = pad(total);
+
+  /* ---------- dots ---------- */
+  slides.forEach(function (_, k) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'dot';
+    b.setAttribute('aria-label', 'Slide ' + (k + 1));
+    b.addEventListener('click', function () { go(k); });
+    dotsWrap.appendChild(b);
+  });
+  var dots = Array.prototype.slice.call(dotsWrap.children);
+
+  /* ---------- navigation ---------- */
+  function go(n) {
+    idx = Math.max(0, Math.min(total - 1, n));
+    slides.forEach(function (s, k) { s.classList.toggle('active', k === idx); });
+    dots.forEach(function (d, k) { d.classList.toggle('active', k === idx); });
+    curEl.textContent = pad(idx + 1);
+    bar.style.width = ((idx + 1) / total * 100) + '%';
+  }
+
+  document.getElementById('prev').addEventListener('click', function () { go(idx - 1); });
+  document.getElementById('next').addEventListener('click', function () { go(idx + 1); });
+
+  window.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ' || k === 'Enter') {
+      e.preventDefault(); go(idx + 1);
+    } else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') {
+      e.preventDefault(); go(idx - 1);
+    } else if (k === 'Home') {
+      e.preventDefault(); go(0);
+    } else if (k === 'End') {
+      e.preventDefault(); go(total - 1);
+    } else if (k === 'p' || k === 'P') {
+      e.preventDefault(); window.print();
+    }
+  });
+
+  /* ---------- swipe ---------- */
+  var sx = 0, sy = 0;
+  window.addEventListener('touchstart', function (e) {
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+  }, { passive: true });
+  window.addEventListener('touchend', function (e) {
+    var dx = e.changedTouches[0].clientX - sx;
+    var dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy)) {
+      go(idx + (dx < 0 ? 1 : -1));
+    }
+  }, { passive: true });
+
+  /* ---------- fit slide to viewport ---------- */
+  function fit() {
+    var s = Math.min(window.innerWidth / 1122, window.innerHeight / 793) * 0.94;
+    document.documentElement.style.setProperty('--scale', s.toFixed(4));
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('orientationchange', fit);
+  fit();
+
+  /* ---------- auto-fit text per slide ---------- */
+  var bodies = Array.prototype.slice.call(document.querySelectorAll('.body'));
+
+  function overflows(b) {
+    if (b.scrollHeight > b.clientHeight + 1) return true;
+    var cols = b.querySelectorAll('.col');
+    for (var i = 0; i < cols.length; i++) {
+      if (cols[i].scrollHeight > cols[i].clientHeight + 1) return true;
+    }
+    return false;
+  }
+
+  function autofit() {
+    bodies.forEach(function (b) {
+      var s = 1;
+      b.style.setProperty('--s', '1');
+      var guard = 0;
+      while (overflows(b) && s > 0.60 && guard < 90) {
+        s = Math.round((s - 0.015) * 1000) / 1000;
+        b.style.setProperty('--s', String(s));
+        guard++;
+      }
+    });
+  }
+
+  /* run after fonts are ready, plus a safety pass */
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(function () { autofit(); });
+  }
+  window.addEventListener('load', function () {
+    autofit();
+    setTimeout(autofit, 400);
+    setTimeout(autofit, 1200);
+  });
+
+  /* ---------- print ---------- */
+  document.getElementById('btnPrint').addEventListener('click', function () {
+    autofit();
+    setTimeout(function () { window.print(); }, 60);
+  });
+
+  /* ---------- theme ---------- */
+  var root = document.documentElement;
+  document.getElementById('btnTheme').addEventListener('click', function () {
+    root.classList.toggle('theme-dark');
+    root.classList.toggle('theme-light');
+  });
+
+  /* ---------- start ---------- */
+  go(0);
+})();
+</script>
+
+</body>
+</html>
